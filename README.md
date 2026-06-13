@@ -1,2 +1,851 @@
-# estiloduende
-venta
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estilo Duende – Productos Premium</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --negro: #0a0a0a;
+    --amarillo: #F5D800;
+    --amarillo-suave: #fff176;
+    --blanco: #f5f5f5;
+    --gris: #1a1a1a;
+    --gris-medio: #2a2a2a;
+    --texto-suave: #aaaaaa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--negro);
+    border-bottom: 2px solid var(--amarillo);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--amarillo);
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logo-circle svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-text {
+    line-height: 1.1;
+  }
+
+  .logo-text .marca {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--amarillo);
+    letter-spacing: 2px;
+  }
+
+  .logo-text .sub {
+    font-size: 10px;
+    color: var(--texto-suave);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .btn-wp-header {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #111 0%, #1a1400 50%, #0a0a0a 100%);
+    padding: 40px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(245,216,0,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--amarillo);
+    color: var(--negro);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 10vw, 72px);
+    line-height: 0.95;
+    color: var(--blanco);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .hero h1 span {
+    color: var(--amarillo);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-top: 12px;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amarillo);
+    color: var(--negro);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(245,216,0,0.3);
+  }
+
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,216,0,0.5); }
+
+  /* ── FILTROS ── */
+  .filtros {
+    padding: 20px 16px 12px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filtros::-webkit-scrollbar { display: none; }
+
+  .filtro-btn {
+    flex-shrink: 0;
+    background: var(--gris-medio);
+    color: var(--texto-suave);
+    border: 1px solid #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .filtro-btn.active,
+  .filtro-btn:hover {
+    background: var(--amarillo);
+    color: var(--negro);
+    border-color: var(--amarillo);
+  }
+
+  /* ── SECCIÓN TÍTULO ── */
+  .seccion-titulo {
+    padding: 8px 20px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .seccion-titulo h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--blanco);
+  }
+
+  .seccion-titulo .linea {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--amarillo), transparent);
+  }
+
+  /* ── GRILLA ── */
+  .catalogo {
+    padding: 0 12px 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @media (min-width: 600px) {
+    .catalogo { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--gris);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #222;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--amarillo);
+  }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    background: #111;
+  }
+
+  .card-body {
+    padding: 10px 12px 12px;
+  }
+
+  .card-categoria {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amarillo);
+    margin-bottom: 4px;
+  }
+
+  .card-nombre {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blanco);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .card-talle {
+    font-size: 11px;
+    color: var(--texto-suave);
+    margin-bottom: 10px;
+  }
+
+  .card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 9px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .card-btn:hover { background: #1da851; }
+
+  /* ── BANNER NOVEDADES ── */
+  .banner-novedades {
+    margin: 8px 12px 16px;
+    background: linear-gradient(135deg, #1a1400, #2a2000);
+    border: 1px solid var(--amarillo);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .banner-novedades h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--amarillo);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .banner-novedades p {
+    font-size: 13px;
+    color: var(--texto-suave);
+    margin-bottom: 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gris);
+    border-top: 2px solid var(--amarillo);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .footer-marca {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--amarillo);
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+
+  .footer-sub {
+    font-size: 11px;
+    color: var(--texto-suave);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-links a {
+    color: var(--texto-suave);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--amarillo); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: #444;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--gris);
+    border-radius: 16px;
+    border: 1px solid var(--amarillo);
+    max-width: 420px;
+    width: 100%;
+    overflow: hidden;
+    animation: modalIn 0.25s ease;
+  }
+
+  @keyframes modalIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  .modal img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+  }
+
+  .modal-body { padding: 20px; }
+
+  .modal-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .modal-body .cat-badge {
+    display: inline-block;
+    background: var(--amarillo);
+    color: var(--negro);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .modal-body p {
+    font-size: 13px;
+    color: var(--texto-suave);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-consultar {
+    flex: 1;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .btn-cerrar {
+    background: #333;
+    color: var(--blanco);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  /* WhatsApp icon SVG inline */
+  .wp-icon { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <div class="logo-circle">
+      <!-- Duende icon simplified -->
+      <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="19" fill="#F5D800"/>
+        <text x="19" y="26" text-anchor="middle" font-family="Arial Black" font-size="20" font-weight="900" fill="#0a0a0a">D</text>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <div class="marca">Estilo Duende</div>
+      <div class="sub">Productos Premium</div>
+    </div>
+  </div>
+  <a href="https://wa.me/5493764860087?text=Hola!%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20consultar" class="btn-wp-header" target="_blank">
+    <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Consultar
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">📍 Posadas, Misiones</div>
+  <h1>Tu estilo,<span>sin límites</span></h1>
+  <p class="hero-sub">Ropa deportiva premium · Selección Argentina · Clubes</p>
+  <a href="https://wa.me/5493764860087?text=Hola!%20Quiero%20ver%20los%20productos%20disponibles" class="hero-cta" target="_blank">
+    <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Ver todo por WhatsApp
+  </a>
+</section>
+
+<!-- FILTROS -->
+<div class="filtros">
+  <button class="filtro-btn active" onclick="filtrar('todos', this)">Todos</button>
+  <button class="filtro-btn" onclick="filtrar('argentina', this)">🇦🇷 Argentina</button>
+  <button class="filtro-btn" onclick="filtrar('boca', this)">Boca Juniors</button>
+  <button class="filtro-btn" onclick="filtrar('river', this)">River Plate</button>
+  <button class="filtrar-btn filtro-btn" onclick="filtrar('racing', this)">Racing</button>
+  <button class="filtro-btn" onclick="filtrar('internacional', this)">Internacional</button>
+  <button class="filtro-btn" onclick="filtrar('conjuntos', this)">Conjuntos</button>
+</div>
+
+<!-- SECCIÓN PRODUCTOS -->
+<div class="seccion-titulo">
+  <h2>CATÁLOGO</h2>
+  <div class="linea"></div>
+</div>
+
+<div class="catalogo" id="catalogo">
+
+  <!-- 1 -->
+  <div class="card" data-cat="argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178719.jpg" alt="Camiseta E. Martínez #23 Argentina" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Argentina</div>
+      <div class="card-nombre">Camiseta E. Martínez #23</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Camiseta%20E.%20Mart%C3%ADnez%20%2323%20Argentina" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card" data-cat="argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178727.jpg" alt="Campera AFA Celeste" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Argentina</div>
+      <div class="card-nombre">Campera AFA Celeste</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20AFA%20Celeste" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178729.jpg" alt="Conjunto AFA Negro/Celeste" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA Negro Gemini</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20Negro" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178725.jpg" alt="Conjunto AFA Marino/Celeste" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA Marino/Celeste</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20Marino" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card" data-cat="argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178721.jpg" alt="Campera AFA Celeste Espalda" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Argentina</div>
+      <div class="card-nombre">Campera AFA Celeste – Vista Espalda</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20AFA%20Celeste" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card" data-cat="boca" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178737.jpg" alt="Campera Inflable Boca Juniors" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Boca Juniors</div>
+      <div class="card-nombre">Campera Inflable Boca Juniors</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20Inflable%20Boca%20Juniors" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178733.jpg" alt="Conjunto AFA Negro Gemini Frente" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA Gemini – Frente</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20Gemini" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178723.jpg" alt="Conjunto AFA con Capucha" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA con Capucha</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20con%20Capucha" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card" data-cat="river" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178743.jpg" alt="Campera River Plate Roja" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">River Plate</div>
+      <div class="card-nombre">Campera River Roja · Talle 1 al 5</div>
+      <div class="card-talle">Talle 1 al 5</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20River%20Roja" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card" data-cat="river" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178745.jpg" alt="Camiseta Retro River Plate" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">River Plate</div>
+      <div class="card-nombre">Camiseta Retro River Plate</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Camiseta%20Retro%20River%20Plate" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card" data-cat="racing" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178731.jpg" alt="Campera Racing Club Negro" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Racing Club</div>
+      <div class="card-nombre">Campera Racing Club Nike</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20Racing%20Club%20Nike" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card" data-cat="internacional" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178717.jpg" alt="Camiseta AC Milan Retro" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Internacional</div>
+      <div class="card-nombre">Camiseta AC Milan Retro</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Camiseta%20AC%20Milan%20Retro" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="card" data-cat="argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178713.jpg" alt="Camiseta Argentina #10 Retro Azul" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Argentina</div>
+      <div class="card-nombre">Camiseta Argentina #10 Retro Azul</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Camiseta%20Argentina%20%2310%20Retro%20Azul" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178740.jpg" alt="Conjunto AFA Blanco/Marino" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA Blanco Gemini</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20Blanco" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="card" data-cat="conjuntos argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178715.jpg" alt="Conjunto AFA Marino con Capucha" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Conjunto · Argentina</div>
+      <div class="card-nombre">Conjunto AFA Marino con Capucha</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20AFA%20Marino%20Capucha" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="card" data-cat="argentina" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178747.jpg" alt="Conjunto Infantil AFA Azul" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Argentina · Niños</div>
+      <div class="card-nombre">Conjunto Infantil AFA Azul</div>
+      <div class="card-talle">Talles infantiles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20el%20Conjunto%20Infantil%20AFA%20Azul" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="card" data-cat="river" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178735.jpg" alt="Campera Inflable River Plate" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">River Plate</div>
+      <div class="card-nombre">Campera Inflable River Plate</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20Inflable%20River%20Plate" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="card" data-cat="racing" onclick="abrirModal(this)">
+    <img class="card-img" src="/mnt/user-data/uploads/178741.jpg" alt="Campera Racing Club Nike Azul" loading="lazy">
+    <div class="card-body">
+      <div class="card-categoria">Racing Club</div>
+      <div class="card-nombre">Campera Racing Club Nike Azul</div>
+      <div class="card-talle">Talles disponibles</div>
+      <a href="https://wa.me/5493764860087?text=Hola!%20Me%20interesa%20la%20Campera%20Racing%20Nike%20Azul" class="card-btn" target="_blank">
+        <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- BANNER NOVEDADES -->
+<div class="banner-novedades">
+  <h3>🔔 ¿QUERÉS ENTERARTE PRIMERO?</h3>
+  <p>Escribinos por WhatsApp y te avisamos cada vez que entra mercadería nueva antes que nadie.</p>
+  <a href="https://wa.me/5493764860087?text=Hola!%20Quiero%20recibir%20novedades%20cuando%20entren%20productos%20nuevos" class="hero-cta" target="_blank" style="font-size:14px;padding:12px 24px;">
+    <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Suscribirme a novedades
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-marca">ESTILO DUENDE</div>
+  <div class="footer-sub">Productos Premium · Posadas, Misiones</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/estiloduendeposadas" target="_blank">📸 Instagram</a>
+    <a href="https://wa.me/5493764860087" target="_blank">💬 WhatsApp</a>
+    <a href="https://wa.me/c/5493764860087" target="_blank">📋 Catálogo WA</a>
+  </div>
+  <div class="footer-copy">© 2025 Estilo Duende · Todos los derechos reservados</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="cerrarModal(event)">
+  <div class="modal" id="modal-content">
+    <img id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div class="cat-badge" id="modal-cat"></div>
+      <h3 id="modal-nombre"></h3>
+      <p id="modal-desc">Consultá disponibilidad de talles y precio directamente por WhatsApp. Respondemos al instante.</p>
+      <div class="modal-actions">
+        <a id="modal-wp-btn" href="#" class="btn-consultar" target="_blank">
+          <svg class="wp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
+        <button class="btn-cerrar" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function filtrar(cat, btn) {
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.card').forEach(card => {
+      if (cat === 'todos' || card.dataset.cat.includes(cat)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function abrirModal(card) {
+    const img = card.querySelector('.card-img');
+    const nombre = card.querySelector('.card-nombre').textContent;
+    const cat = card.querySelector('.card-categoria').textContent;
+    const wpLink = card.querySelector('.card-btn').href;
+    document.getElementById('modal-img').src = img.src;
+    document.getElementById('modal-img').alt = img.alt;
+    document.getElementById('modal-nombre').textContent = nombre;
+    document.getElementById('modal-cat').textContent = cat;
+    document.getElementById('modal-wp-btn').href = wpLink;
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function cerrarModal(e) {
+    if (e.target === document.getElementById('modal')) {
+      document.getElementById('modal').classList.remove('open');
+    }
+  }
+</script>
+</body>
+</html>
